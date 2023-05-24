@@ -1,6 +1,7 @@
 .post {
   margin: 1rem 0;
   padding: 1rem;
+  border-radius: 0.5rem;
   background-color: #9c7eee;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
   animation: animate-in 1s ease-out forwards;
