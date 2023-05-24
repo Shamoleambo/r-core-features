@@ -1,8 +1,8 @@
-function Post() {
+function Post(props) {
   return (
     <div>
-      <p>Mano</p>
-      <p>Another day another dollar</p>
+      <p>{props.author}</p>
+      <p>{props.content}</p>
     </div>
   )
 }
