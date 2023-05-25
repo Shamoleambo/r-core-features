@@ -7,6 +7,11 @@ import classes from './PostsList.module.css'
 function PostsList() {
   const [body, setBody] = useState('')
   const [author, setAuthor] = useState('')
+  const [isModalVisible, setIsModalVisible] = useState(true)
+
+  function hideModalHandler() {
+    setIsModalVisible(false)
+  }
 
   function bodyChangeHandler(event) {
     setBody(event.target.value)
@@ -17,12 +22,14 @@ function PostsList() {
 
   return (
     <>
-      <Modal>
-        <NewPost
-          onChangeBody={bodyChangeHandler}
-          onChangeAuthor={authorChangeHandler}
-        />
-      </Modal>
+      {isModalVisible && (
+        <Modal onClose={hideModalHandler}>
+          <NewPost
+            onChangeBody={bodyChangeHandler}
+            onChangeAuthor={authorChangeHandler}
+          />
+        </Modal>
+      )}
       <ul className={classes.posts}>
         <Post author={author} body={body} />
         <Post author='Semog Ogait' body='The Lamest Book' />
