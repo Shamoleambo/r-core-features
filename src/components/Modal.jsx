@@ -4,7 +4,9 @@ function Modal({ children }) {
   return (
     <>
       <div className={classes.backdrop}>
-        <dialog className={classes.modal}>{children}</dialog>
+        <dialog open className={classes.modal}>
+          {children}
+        </dialog>
       </div>
     </>
   )
