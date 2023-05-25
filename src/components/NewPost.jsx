@@ -1,6 +1,6 @@
 import classes from './NewPost.module.css'
 
-function NewPost(props) {
+function NewPost({ onChangeBody, onChangeAuthor, onCancel }) {
   return (
     <form className={classes.form}>
       <p>
@@ -9,12 +9,18 @@ function NewPost(props) {
           id='body'
           rows={3}
           required
-          onChange={props.onChangeBody}
+          onChange={onChangeBody}
         ></textarea>
       </p>
       <p>
         <label htmlFor='name'>Your Name</label>
-        <input type='text' id='name' required onChange={props.onChangeAuthor} />
+        <input type='text' id='name' required onChange={onChangeAuthor} />
+      </p>
+      <p className={classes.actions}>
+        <button type='button' onClick={onCancel}>
+          Cancel
+        </button>
+        <button>Submit</button>
       </p>
     </form>
   )
