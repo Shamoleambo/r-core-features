@@ -14,7 +14,7 @@ function NewPost(props) {
       </p>
       <p>
         <label htmlFor='name'>Your Name</label>
-        <input type='text' id='name' required />
+        <input type='text' id='name' required onChange={props.onChangeAuthor} />
       </p>
     </form>
   )
