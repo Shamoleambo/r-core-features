@@ -8,6 +8,13 @@ function PostsList({ isPosting, onHideModal }) {
   const [posts, setPosts] = useState([])
 
   function addPostHandler(newPost) {
+    fetch('http://localhost:8080/posts', {
+      method: 'POST',
+      body: JSON.stringify(newPost),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
     setPosts((prevState) => [...prevState, newPost])
   }
 
