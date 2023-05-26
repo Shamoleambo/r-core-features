@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import MainHeader from './components/MainHeader'
-import PostsList from './components/PostsList'
+import MainHeader from '../components/MainHeader'
+import PostsList from '../components/PostsList'
 
-function App() {
+function Posts() {
   const [isModalVisible, setIsModalVisible] = useState(false)
 
   function hideModalHandler() {
@@ -21,4 +21,4 @@ function App() {
   )
 }
 
-export default App
+export default Posts
