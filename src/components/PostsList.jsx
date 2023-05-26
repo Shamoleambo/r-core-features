@@ -9,8 +9,6 @@ function PostsList({ isPosting, onHideModal }) {
 
   function addPostHandler(newPost) {
     setPosts((prevState) => [...prevState, newPost])
-
-    console.log(posts)
   }
 
   return (
@@ -21,7 +19,9 @@ function PostsList({ isPosting, onHideModal }) {
         </Modal>
       )}
       <ul className={classes.posts}>
-        <Post author='Semog Ogait' body='The Lamest Book' />
+        {posts.map((post, index) => (
+          <Post key={index} author={post.author} body={post.body} />
+        ))}
       </ul>
     </>
   )
