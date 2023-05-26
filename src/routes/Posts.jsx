@@ -1,10 +1,14 @@
+import { Outlet } from 'react-router-dom'
 import PostsList from '../components/PostsList'
 
 function Posts() {
   return (
-    <main>
-      <PostsList />
-    </main>
+    <>
+      <Outlet />
+      <main>
+        <PostsList />
+      </main>
+    </>
   )
 }
 
