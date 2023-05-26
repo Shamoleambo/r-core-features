@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import classes from './NewPost.module.css'
+import Modal from '../components/Modal'
 
 function NewPost({ onCancel, onAddNewPost }) {
   const [body, setBody] = useState('')
@@ -24,27 +25,34 @@ function NewPost({ onCancel, onAddNewPost }) {
   }
 
   return (
-    <form className={classes.form} onSubmit={submitHandler}>
-      <p>
-        <label htmlFor='body'>Text</label>
-        <textarea
-          id='body'
-          rows={3}
-          required
-          onChange={bodyChangeHandler}
-        ></textarea>
-      </p>
-      <p>
-        <label htmlFor='name'>Your Name</label>
-        <input type='text' id='name' onChange={authorChangeHandler} required />
-      </p>
-      <p className={classes.actions}>
-        <button type='button' onClick={onCancel}>
-          Cancel
-        </button>
-        <button>Submit</button>
-      </p>
-    </form>
+    <Modal>
+      <form className={classes.form} onSubmit={submitHandler}>
+        <p>
+          <label htmlFor='body'>Text</label>
+          <textarea
+            id='body'
+            rows={3}
+            required
+            onChange={bodyChangeHandler}
+          ></textarea>
+        </p>
+        <p>
+          <label htmlFor='name'>Your Name</label>
+          <input
+            type='text'
+            id='name'
+            onChange={authorChangeHandler}
+            required
+          />
+        </p>
+        <p className={classes.actions}>
+          <button type='button' onClick={onCancel}>
+            Cancel
+          </button>
+          <button>Submit</button>
+        </p>
+      </form>
+    </Modal>
   )
 }
 
