@@ -1,7 +1,12 @@
 import { useLoaderData, Link } from 'react-router-dom'
-
 import Modal from '../components/Modal'
 import classes from './PostDetails.module.css'
+
+export async function loader({ params }) {
+  const response = await fetch(`http://localhost:8080/posts/${params.id}`)
+  const resData = await response.json()
+  return resData.post
+}
 
 function PostDetails() {
   const post = useLoaderData()
